@@ -26,6 +26,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Load environment variables for local and on-premise deployments
 load_dotenv(override=True)
 
 class Settings(BaseSettings):
