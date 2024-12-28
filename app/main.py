@@ -2,6 +2,7 @@ import aiohttp
 import asyncio
 import logging
 import uvicorn
+import os
 
 from datetime import datetime
 from collections import defaultdict
@@ -25,11 +26,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Force reload environment variables
 load_dotenv(override=True)
 
 class Settings(BaseSettings):
-    FLIGHT_API_KEY: str
+    FLIGHT_API_KEY: str = os.getenv("FLIGHT_API_KEY"),
     API_BASE_URL: str = "https://api.flightapi.io"
     CACHE_TTL: int = 300
     CACHE_MAXSIZE: int = 100
