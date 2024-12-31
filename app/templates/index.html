@@ -71,7 +71,7 @@
                     title="Please enter a 3-letter airport code"
                     required
                 >
-                <button type="submit">Search</button>
+                <button type="submit" id="button-submit">Search</button>
             </div>
         </form>
 
@@ -100,5 +100,14 @@
         </table>
         {% endif %}
     </div>
+    <script>
+        function preventDuplicateSubmission(event) {
+            const button = document.getElementById('button-submit');
+            button.disabled = true;
+            setTimeout(() => {
+                button.disabled = false;
+            }, 3000);  // 3 sec
+        }
+    </script>
 </body>
 </html>
